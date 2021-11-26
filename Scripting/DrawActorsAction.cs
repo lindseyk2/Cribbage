@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using cse210_batter_csharp.Casting;
-using cse210_batter_csharp.Services;
+using Final_Project.Casting;
+using Final_Project.Services;
 
 
-namespace cse210_batter_csharp.Scripting
+namespace Final_Project.Scripting
 {
     /// <summary>
     /// An action to draw all of the actors in the game.

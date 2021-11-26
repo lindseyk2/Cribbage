@@ -1,8 +1,8 @@
 using System;
 using Raylib_cs;
-using cse210_batter_csharp.Casting;
+using Final_Project.Casting;
 
-namespace cse210_batter_csharp.Services
+namespace Final_Project.Services
 {
     /// <summary>
     /// Handles all the physics related parts of the game such as

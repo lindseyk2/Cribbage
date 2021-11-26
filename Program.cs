@@ -1,10 +1,10 @@
 ﻿using System;
-using cse210_batter_csharp.Services;
-using cse210_batter_csharp.Casting;
-using cse210_batter_csharp.Scripting;
+using Final_Project.Services;
+using Final_Project.Casting;
+using Final_Project.Scripting;
 using System.Collections.Generic;
 
-namespace cse210_batter_csharp
+namespace Final_Project
 {
     class Program
     {
