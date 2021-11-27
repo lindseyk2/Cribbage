@@ -13,20 +13,34 @@ namespace Final_Project
             // Create the cast
             Dictionary<string, List<Actor>> cast = new Dictionary<string, List<Actor>>();
 
-            // Bricks
-            cast["bricks"] = new List<Actor>();
+            // Board
+            cast["Board"] = new List<Actor>();
 
-            // TODO: Add your bricks here
+            Board board = new Board();
+            cast["Board"].Add(board);
 
-            // The Ball (or balls if desired)
-            cast["balls"] = new List<Actor>();
+            // The Scores
+            cast["Scores"] = new List<Actor>();
 
-            // TODO: Add your ball here
+            Point userPosition = new Point(Constants.SCORE_USER_X, Constants.SCORE_USER_Y);
+            Score user = new Score(userPosition);
+            cast["Scores"].Add(user);
 
-            // The paddle
-            cast["paddle"] = new List<Actor>();
+            Point NPCPosition = new Point(Constants.SCORE_NPC_X, Constants.SCORE_NPC_Y);
+            Score NPC = new Score(NPCPosition);
+            cast["Scores"].Add(NPC);
 
-            // TODO: Add your paddle here
+            // The pile
+            cast["Pile"] = new List<Actor>();
+
+            LaidCard pile = new LaidCard();
+            cast["Pile"].Add(pile);
+
+            // The deck
+            cast["Deck"] = new List<Actor>();
+
+            Deck deck = new Deck();
+            cast["Deck"].Add(deck);
 
             // Create the script
             Dictionary<string, List<Action>> script = new Dictionary<string, List<Action>>();
@@ -46,9 +60,9 @@ namespace Final_Project
             // TODO: Add additional actions here to handle the input, move the actors, handle collisions, etc.
 
             // Start up the game
-            outputService.OpenWindow(Constants.MAX_X, Constants.MAX_Y, "Batter", Constants.FRAME_RATE);
-            audioService.StartAudio();
-            audioService.PlaySound(Constants.SOUND_START);
+            outputService.OpenWindow(Constants.MAX_X, Constants.MAX_Y, "Cribbage", Constants.FRAME_RATE);
+            // audioService.StartAudio();
+            // audioService.PlaySound(Constants.SOUND_START);
 
             Director theDirector = new Director(cast, script);
             theDirector.Direct();
