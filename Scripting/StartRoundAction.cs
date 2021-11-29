@@ -30,22 +30,25 @@ namespace Final_Project.Scripting
                 for (int i = 0; i < 6; i++)
                 {
                     Point userHand = new Point(x1, 520);
-                    Card card = new Card(userHand);
-                    cast["PlayerCards"].Add(card);
+                    Card playerCard = new Card();
+                    playerCard.SetPosition(userHand);
+                    cast["PlayerCards"].Add(playerCard);
                     x1 += 65;
                 }
 
                 int x2 = 200;
                 for (int i = 0; i < 6; i = i + 1)
                 {
-                    Point userHand = new Point(x2, 10);
-                    Card card = new Card(userHand);
-                    cast["NPCCards"].Add(card);
+                    Point npcHand = new Point(x2, 10);
+                    Card npcCard = new Card();
+                    npcCard.SetPosition(npcHand);
+                    cast["NPCCards"].Add(npcCard);
                     x2 += 65;
                 }
 
                 Point faceUpCardPosition = new Point(Constants.DECK_X, Constants.DECK_Y);
-                Card faceUpCard = new Card(faceUpCardPosition);
+                Card faceUpCard = new Card();
+                faceUpCard.SetPosition(faceUpCardPosition);
                 cast["Cards"].Add(faceUpCard);
             }
         }

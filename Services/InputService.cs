@@ -15,53 +15,16 @@ namespace Final_Project.Services
 
         }
 
-        public bool IsLeftPressed()
+        public bool ISMouseClick()
         {
-            return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_LEFT);
+            return Raylib.IsMouseButtonPressed(Raylib_cs.MouseButton.MOUSE_LEFT_BUTTON);
         }
 
-        public bool IsRightPressed()
+        public Point GetMouseClick()
         {
-            return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_RIGHT);
-        }
-        public bool IsUpPressed()
-        {
-            return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_UP);
-        }
-        public bool IsDownPressed()
-        {
-            return Raylib.IsKeyDown(Raylib_cs.KeyboardKey.KEY_DOWN);
-        }
+            int x = Raylib.GetMouseX();
+            int y = Raylib.GetMouseY();
 
-        /// <summary>
-        /// Gets the direction asked for by the current key presses
-        /// </summary>
-        /// <returns></returns>
-        public Point GetDirection()
-        {
-            int x = 0;
-            int y = 0;
-
-            if (IsLeftPressed())
-            {
-                x = -1;
-            }
-
-            if (IsRightPressed())
-            {
-                x = 1;
-            }
-            
-            if (IsUpPressed())
-            {
-                y = -1;
-            }
-            
-            if (IsDownPressed())
-            {
-                y = 1;
-            }
-            
             return new Point(x, y);
         }
 
@@ -74,5 +37,4 @@ namespace Final_Project.Services
             return Raylib.WindowShouldClose();
         }
     }
-
 }

@@ -50,7 +50,8 @@ namespace Final_Project
             cast["Crib"] = new List<Actor>();
 
             Point cribPosition = new Point(20, 520);
-            Card crib = new Card(cribPosition);
+            Card crib = new Card();
+            crib.SetPosition(cribPosition);
             cast["Crib"].Add(crib);
 
             // Create the script
@@ -65,12 +66,17 @@ namespace Final_Project
             script["input"] = new List<Action>();
             script["update"] = new List<Action>();
 
-            DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
-            script["output"].Add(drawActorsAction);
+            MoveCardAction moveCardAction = new MoveCardAction(inputService);
+            script["input"].Add(moveCardAction);
 
             StartRoundAction startRoundAction = new StartRoundAction();
-            script["output"].Add(startRoundAction);
-
+            script["update"].Add(startRoundAction);
+            
+            NPCMoveAction npcMoveAction = new NPCMoveAction();
+            script["update"].Add(npcMoveAction);
+            
+            DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
+            script["output"].Add(drawActorsAction);
             // TODO: Add additional actions here to handle the input, move the actors, handle collisions, etc.
 
             // Start up the game

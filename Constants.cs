@@ -28,7 +28,7 @@ namespace Final_Project
         public const int GAME_PEICE_WIDTH = 5;
 
         public const int SCORE_HEIGHT = 25;
-        public const int SCORE_WIDTH = 25;
+        public const int SCORE_WIDTH = 35;
         public const int SCORE_USER_X = 150;
         public const int SCORE_USER_Y = 327;
         public const int SCORE_NPC_X = 150;

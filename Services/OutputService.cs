@@ -102,7 +102,7 @@ namespace Final_Project.Services
 
             if (darkText)
             {
-                color = Raylib_cs.Color.BLACK;
+                color = Raylib_cs.Color.WHITE;
             }
 
             Raylib.DrawText(text,
