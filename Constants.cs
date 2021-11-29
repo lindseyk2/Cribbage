@@ -14,8 +14,8 @@ namespace Final_Project
         public const int DEFAULT_FONT_SIZE = 20;
         public const int DEFAULT_TEXT_OFFSET = 4;
 
-        public const int CARD_HEIGHT = 45;
-        public const int CARD_WIDTH = 45;
+        public const int CARD_HEIGHT = 70;
+        public const int CARD_WIDTH = 60;
 
         public const int BOARD_WIDTH = 400;
         public const int BOARD_HEIGHT = 100;
@@ -40,6 +40,6 @@ namespace Final_Project
         public const int LAIDCARD_WIDTH = 50;
 
         public const int DECK_X = 75;
-        public const int DECK_Y = 280;
+        public const int DECK_Y = 265;
     }
 }
