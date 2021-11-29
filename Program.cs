@@ -39,32 +39,12 @@ namespace Final_Project
 
             // Face Up Card
             cast["Cards"] = new List<Actor>();
-            
-            Point faceUpCardPosition = new Point(Constants.DECK_X, Constants.DECK_Y);
-            Card faceUpCard = new Card(faceUpCardPosition);
-            cast["Cards"].Add(faceUpCard);
 
             // Player's Hand
             cast["PlayerCards"] = new List<Actor>();
-            int x1 = 200;
-            for (int i = 0; i < 6; i++)
-            {
-                Point userHand = new Point(x1, 520);
-                Card card = new Card(userHand);
-                cast["PlayerCards"].Add(card);
-                x1 += 65;
-            }
 
             // NPC's Hand
             cast["NPCCards"] = new List<Actor>();
-            int x2 = 200;
-            for (int i = 0; i < 6; i = i + 1)
-            {
-                Point userHand = new Point(x2, 10);
-                Card card = new Card(userHand);
-                cast["NPCCards"].Add(card);
-                x2 += 65;
-            }
 
             // Crib
             cast["Crib"] = new List<Actor>();
@@ -87,6 +67,9 @@ namespace Final_Project
 
             DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
             script["output"].Add(drawActorsAction);
+
+            StartRoundAction startRoundAction = new StartRoundAction();
+            script["output"].Add(startRoundAction);
 
             // TODO: Add additional actions here to handle the input, move the actors, handle collisions, etc.
 
