@@ -65,6 +65,7 @@ namespace Final_Project
             Random randomGenerator = new Random();
             int number = randomGenerator.Next(0, _deck.Count);
             Card randomCard = _deck[number];
+            _deck.Remove(randomCard);
             return randomCard;
         }
     }

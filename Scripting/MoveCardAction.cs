@@ -52,7 +52,6 @@ namespace Final_Project.Scripting
                                 card.SetPosition(position);
                                 playedPlayer.Add(card);
                             }
-                            
                         }
                     }
                 }
