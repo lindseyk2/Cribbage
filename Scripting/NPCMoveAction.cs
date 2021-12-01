@@ -13,22 +13,34 @@ namespace Final_Project.Scripting
         {
             List<Actor> playerCards = cast["PlayerCards"];
             List<Actor> npcCards = cast["NPCCards"];
-            List<Actor> cards = cast["Cards"];
+            List<Actor> playedNPC = cast["PlayedNPCCards"];
+            List<Actor> crib = cast["Crib"];
 
             Random randomGenerator = new Random();
             int number = randomGenerator.Next(0, npcCards.Count);
             
-            if(npcCards.Count > playerCards.Count)
+            if (npcCards.Count > playerCards.Count)
             {
-                Actor card = npcCards[number];
+                if (npcCards.Count > 4)
+                {
+                    Actor card = npcCards[number];
 
-                Point position = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
-                card.SetPosition(position);
-                cards.Add(card);
-            }
-            foreach(Actor card in cards)
-            {
-                npcCards.Remove(card);
+                    Point cribPosition = new Point(20, 520);
+                    card.SetPosition(cribPosition);
+                    
+                    crib.Add(card);
+                    npcCards.Remove(card);
+                }
+                else
+                {
+                    Actor card = npcCards[number];
+
+                    Point laidPosition = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
+                    card.SetPosition(laidPosition);
+                    
+                    playedNPC.Add(card);
+                    npcCards.Remove(card);
+                }
             }
         }
     }

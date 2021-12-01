@@ -19,6 +19,7 @@ namespace Final_Project.Casting
         public void SetScore(int score)
         {
             _score = score;
+            SetText(_score.ToString());
         }
 
         public int GetScore()

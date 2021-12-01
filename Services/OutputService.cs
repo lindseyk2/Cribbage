@@ -133,6 +133,7 @@ namespace Final_Project.Services
             {
                 bool darkText = true;
                 string text = actor.GetText();
+                DrawBox(x, y, width, height);
                 DrawText(x, y, text, darkText);
             }
             else

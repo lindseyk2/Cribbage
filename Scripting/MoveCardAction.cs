@@ -22,7 +22,11 @@ namespace Final_Project.Scripting
             int mouseY = mousePosition.GetY();
 
             List<Actor> playerCards = cast["PlayerCards"];
-            List<Actor> cards = cast["Cards"];
+            List<Actor> playedPlayer = cast["PlayedPlayerCards"];
+            List<Actor> crib = cast["Crib"];
+            int count = playerCards.Count;
+            
+
             foreach(Card card in playerCards)
             {
                 int leftEdge = card.GetLeftEdge();
@@ -36,14 +40,28 @@ namespace Final_Project.Scripting
                     {
                         if(mouseY >= top && mouseY <= bottom)
                         {
-                            Point position = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
-                            card.SetPosition(position);
-                            cards.Add(card);
+                            if (count > 4)
+                            {
+                                Point cribPosition = new Point(20, 520);
+                                card.SetPosition(cribPosition);
+                                crib.Add(card);
+                            }
+                            else
+                            {
+                                Point position = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
+                                card.SetPosition(position);
+                                playedPlayer.Add(card);
+                            }
+                            
                         }
                     }
                 }
             }
-            foreach(Card card in cards)
+            foreach(Card card in crib)
+            {
+                playerCards.Remove(card);
+            }
+            foreach(Card card in playedPlayer)
             {
                 playerCards.Remove(card);
             }

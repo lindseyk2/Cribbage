@@ -33,12 +33,16 @@ namespace Final_Project
             // Laid Cards Count
             cast["Count"] = new List<Actor>();
 
-            Point countPosition = new Point(650, 350);
+            Point countPosition = new Point(633, 360);
             Score count = new Score(countPosition);
             cast["Count"].Add(count);
 
             // Face Up Card
             cast["Cards"] = new List<Actor>();
+
+            cast["PlayedPlayerCards"] = new List<Actor>();
+
+            cast["PlayedNPCCards"] = new List<Actor>();
 
             // Player's Hand
             cast["PlayerCards"] = new List<Actor>();
@@ -48,11 +52,6 @@ namespace Final_Project
 
             // Crib
             cast["Crib"] = new List<Actor>();
-
-            Point cribPosition = new Point(20, 520);
-            Card crib = new Card();
-            crib.SetPosition(cribPosition);
-            cast["Crib"].Add(crib);
 
             // Create the script
             Dictionary<string, List<Action>> script = new Dictionary<string, List<Action>>();
@@ -74,6 +73,9 @@ namespace Final_Project
             
             NPCMoveAction npcMoveAction = new NPCMoveAction();
             script["update"].Add(npcMoveAction);
+
+            CountLaidCardAction countLaidCardAction = new CountLaidCardAction();
+            script["update"].Add(countLaidCardAction);
             
             DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
             script["output"].Add(drawActorsAction);

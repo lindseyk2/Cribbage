@@ -7,48 +7,56 @@ namespace Final_Project
     public class CardDeck
     {
         private List<Card> _deck = new List<Card>();
-        private Card _card = new Card();
 
         public CardDeck()
         {
-            
+            CreateDeck();
         }
 
         private void CreateDeck()
         {
-            int number = 1;
+            int sNumber = 1;
+            int cNumber = 1;
+            int dNumber = 1;
+            int hNumber = 1;
+             
             for (int i = 0; i < 52; i++)
             {
                 if (i < 13)
                 {   
-                    _card.SetSuit("Spade"); 
-                    _card.SetCardValue(number);
-                    _deck.Add(_card);
-                    number++;
+                    Card card = new Card();
+                    card.SetSuit("Spade"); 
+                    card.SetCardValue(sNumber);
+                    card.SetText(sNumber + "\n S");
+                    _deck.Add(card);
+                    sNumber++;
                 }
-                if (i < 26)
+                else if (i >= 13 && i < 26)
                 {
-                    number = 1;
-                    _card.SetSuit("Club"); 
-                    _card.SetCardValue(number);
-                    _deck.Add(_card);
-                    number++;
+                    Card card = new Card();
+                    card.SetSuit("Club"); 
+                    card.SetCardValue(cNumber);
+                    card.SetText(cNumber + "\n C");
+                    _deck.Add(card);
+                    cNumber++;
                 }
-                if (i < 39)
+                else if (i >= 26 && i < 39)
                 {
-                    number = 1;
-                    _card.SetSuit("Dimond"); 
-                    _card.SetCardValue(number);
-                    _deck.Add(_card);
-                    number++;
+                    Card card = new Card();
+                    card.SetSuit("Dimond"); 
+                    card.SetCardValue(dNumber);
+                    card.SetText(dNumber + "\n D");
+                    _deck.Add(card);
+                    dNumber++;
                 }
-                else
+                else if (i >= 39 && i < 52)
                 {
-                    number = 1;
-                    _card.SetSuit("Heart"); 
-                    _card.SetCardValue(number);
-                    _deck.Add(_card);
-                    number++;
+                    Card card = new Card();
+                    card.SetSuit("Heart"); 
+                    card.SetCardValue(hNumber);
+                    card.SetText(hNumber + "\n H");
+                    _deck.Add(card);
+                    hNumber++;
                 }
             }
         }
