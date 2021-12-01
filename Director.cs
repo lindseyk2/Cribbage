@@ -56,6 +56,5 @@ namespace Final_Project
                 action.Execute(_cast);
             }
         }
-
     }
 }

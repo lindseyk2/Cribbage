@@ -70,12 +70,12 @@ namespace Final_Project
 
             StartRoundAction startRoundAction = new StartRoundAction();
             script["update"].Add(startRoundAction);
-            
-            NPCMoveAction npcMoveAction = new NPCMoveAction();
-            script["update"].Add(npcMoveAction);
 
             CountLaidCardAction countLaidCardAction = new CountLaidCardAction();
             script["update"].Add(countLaidCardAction);
+            
+            NPCMoveAction npcMoveAction = new NPCMoveAction();
+            script["update"].Add(npcMoveAction);
             
             DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
             script["output"].Add(drawActorsAction);

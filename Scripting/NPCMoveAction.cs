@@ -15,6 +15,7 @@ namespace Final_Project.Scripting
             List<Actor> npcCards = cast["NPCCards"];
             List<Actor> playedNPC = cast["PlayedNPCCards"];
             List<Actor> crib = cast["Crib"];
+            List<Actor> countPlayedCards = cast["Count"];
 
             Random randomGenerator = new Random();
             int number = randomGenerator.Next(0, npcCards.Count);
@@ -33,13 +34,39 @@ namespace Final_Project.Scripting
                 }
                 else
                 {
-                    Actor card = npcCards[number];
+                    int totalCount = 0;
+                    foreach (Score countPlayedCard in countPlayedCards)
+                    {
+                        totalCount += countPlayedCard.GetScore();
+                    }
 
-                    Point laidPosition = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
-                    card.SetPosition(laidPosition);
+                    Card randomCard = (Card)npcCards[number];
+                    int randomValue = randomCard.GetCardValue();
+
+                        if (totalCount + randomValue > 31)
+                        {                            
+                            
+                        }
+                        else
+                        {
+                            Point laidPosition = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
+                            randomCard.SetPosition(laidPosition);
                     
-                    playedNPC.Add(card);
-                    npcCards.Remove(card);
+                            playedNPC.Add(randomCard);
+                        }
+
+                        // Actor card = npcCards[number];
+
+                        // Point laidPosition = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
+                        // card.SetPosition(laidPosition);
+                    
+                        // playedNPC.Add(card);
+                        // npcCards.Remove(card);
+    
+                    foreach (Card card in playedNPC)
+                    {
+                        npcCards.Remove(card);
+                    }
                 }
             }
         }

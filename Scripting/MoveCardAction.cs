@@ -24,6 +24,7 @@ namespace Final_Project.Scripting
             List<Actor> playerCards = cast["PlayerCards"];
             List<Actor> playedPlayer = cast["PlayedPlayerCards"];
             List<Actor> crib = cast["Crib"];
+            List<Actor> countPlayedCards = cast["Count"];
             int count = playerCards.Count;
             
 
@@ -48,9 +49,23 @@ namespace Final_Project.Scripting
                             }
                             else
                             {
-                                Point position = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
-                                card.SetPosition(position);
-                                playedPlayer.Add(card);
+                                int totalCount = 0;
+                                foreach (Score countPlayedCard in countPlayedCards)
+                                {
+                                    totalCount += countPlayedCard.GetScore();
+                                }
+                                int cardValue = card.GetCardValue();
+                                
+                                if (totalCount + cardValue > 31)
+                                {
+                                    
+                                }
+                                else
+                                {
+                                    Point position = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
+                                    card.SetPosition(position);
+                                    playedPlayer.Add(card);
+                                }
                             }
                         }
                     }

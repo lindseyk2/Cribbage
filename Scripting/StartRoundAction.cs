@@ -55,7 +55,7 @@ namespace Final_Project.Scripting
                     Point userHand = new Point(x1, 520);
                     Card playerCard = cardDeck.RandomCard();
                     playerCard.SetPosition(userHand);
-                    playerCard.GetText();
+                    //playerCard.GetText();
                     cast["PlayerCards"].Add(playerCard);
                     x1 += 65;
                 }
@@ -67,7 +67,7 @@ namespace Final_Project.Scripting
                     Point npcHand = new Point(x2, 10);
                     Card npcCard = cardDeck.RandomCard();
                     npcCard.SetPosition(npcHand);
-                    npcCard.GetText();
+                    //npcCard.GetText();
                     cast["NPCCards"].Add(npcCard);
                     x2 += 65;
                 }                
@@ -76,7 +76,7 @@ namespace Final_Project.Scripting
                 Point faceUpCardPosition = new Point(Constants.DECK_X, Constants.DECK_Y);
                 Card faceUpCard = cardDeck.RandomCard();
                 faceUpCard.SetPosition(faceUpCardPosition);
-                faceUpCard.GetText();
+                //faceUpCard.GetText();
                 cast["Cards"].Add(faceUpCard);
             }
         }
