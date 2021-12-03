@@ -5,8 +5,8 @@ using Final_Project.Services;
 
 namespace Final_Project.Scripting
 {
-    //An action to Calculate the score in a players Hand
-    public class CalculateScoreAction : Action
+    //An action to End a round
+    public class EndRoundAction : Action
     {
         public override void Execute(Dictionary<string, List<Actor>> cast)
         {

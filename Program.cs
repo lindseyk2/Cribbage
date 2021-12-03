@@ -60,12 +60,13 @@ namespace Final_Project
             InputService inputService = new InputService();
             PhysicsService physicsService = new PhysicsService();
             AudioService audioService = new AudioService();
+            TurnService turnService = new TurnService();
 
             script["output"] = new List<Action>();
             script["input"] = new List<Action>();
             script["update"] = new List<Action>();
 
-            MoveCardAction moveCardAction = new MoveCardAction(inputService);
+            MoveCardAction moveCardAction = new MoveCardAction(inputService, turnService);
             script["input"].Add(moveCardAction);
 
             StartRoundAction startRoundAction = new StartRoundAction();
@@ -74,12 +75,11 @@ namespace Final_Project
             CountLaidCardAction countLaidCardAction = new CountLaidCardAction();
             script["update"].Add(countLaidCardAction);
             
-            NPCMoveAction npcMoveAction = new NPCMoveAction();
+            NPCMoveAction npcMoveAction = new NPCMoveAction(turnService);
             script["update"].Add(npcMoveAction);
             
             DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
             script["output"].Add(drawActorsAction);
-            // TODO: Add additional actions here to handle the input, move the actors, handle collisions, etc.
 
             // Start up the game
             outputService.OpenWindow(Constants.MAX_X, Constants.MAX_Y, "Cribbage", Constants.FRAME_RATE);

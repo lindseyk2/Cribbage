@@ -9,10 +9,12 @@ namespace Final_Project.Scripting
     public class MoveCardAction : Action
     {
         InputService _inputService;
+        TurnService _turnService;
 
-        public MoveCardAction(InputService inputService)
+        public MoveCardAction(InputService inputService, TurnService turnService)
         {
             _inputService = inputService;
+            _turnService = turnService;
         }
 
         public override void Execute(Dictionary<string, List<Actor>> cast)
@@ -25,9 +27,9 @@ namespace Final_Project.Scripting
             List<Actor> playedPlayer = cast["PlayedPlayerCards"];
             List<Actor> crib = cast["Crib"];
             List<Actor> countPlayedCards = cast["Count"];
+            Score npcScore = (Score)cast["Scores"][1];
             int count = playerCards.Count;
             
-
             foreach(Card card in playerCards)
             {
                 int leftEdge = card.GetLeftEdge();
@@ -35,7 +37,7 @@ namespace Final_Project.Scripting
                 int top = card.GetTopEdge();
                 int bottom = card.GetBottomEdge();
 
-                if(_inputService.ISMouseClick())
+                if(_inputService.ISMouseClick() && _turnService.IsPlayerTurn())
                 {
                     if(mouseX >= leftEdge && mouseX <= rightEdge)
                     {
@@ -46,6 +48,8 @@ namespace Final_Project.Scripting
                                 Point cribPosition = new Point(20, 520);
                                 card.SetPosition(cribPosition);
                                 crib.Add(card);
+
+                                _turnService.EndPlayerTurn();
                             }
                             else
                             {
@@ -58,13 +62,21 @@ namespace Final_Project.Scripting
                                 
                                 if (totalCount + cardValue > 31)
                                 {
-                                    
+                                    // int npcCurrentScore = npcScore.GetScore();
+                                    // int npcNewScore = npcCurrentScore + 1;
+                                    // npcScore.SetScore(npcNewScore);
+
+                                    Point position = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
+                                    card.SetPosition(position);
+                                    playedPlayer.Add(card);
+                                    _turnService.EndPlayerTurn();
                                 }
                                 else
                                 {
                                     Point position = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
                                     card.SetPosition(position);
                                     playedPlayer.Add(card);
+                                    _turnService.EndPlayerTurn();
                                 }
                             }
                         }
