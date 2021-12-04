@@ -10,7 +10,7 @@ namespace Final_Project.Scripting
     public class NPCMoveAction : Action
     {
         TurnService _turnService;
-        int _delay = 40;
+        int _delay = 50;
         public NPCMoveAction(TurnService turnService)
         {
             _turnService = turnService;
@@ -34,7 +34,7 @@ namespace Final_Project.Scripting
                 Random randomGenerator = new Random();
                 int number = randomGenerator.Next(0, npcCards.Count);
 
-                _delay = 40;
+                _delay = 50;
             
                 // if (npcCards.Count > playerCards.Count)
                 if (_turnService.IsNPCTurn())
@@ -48,6 +48,10 @@ namespace Final_Project.Scripting
                     
                         crib.Add(card);
                         npcCards.Remove(card);
+                        _turnService.EndNPCTurn();
+                    }
+                    else if (npcCards.Count == 0)
+                    {
                         _turnService.EndNPCTurn();
                     }
                     else

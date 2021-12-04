@@ -27,6 +27,7 @@ namespace Final_Project.Scripting
             List<Actor> playedPlayer = cast["PlayedPlayerCards"];
             List<Actor> crib = cast["Crib"];
             List<Actor> countPlayedCards = cast["Count"];
+            Card pass = (Card)cast["Pass"][0];
             Score npcScore = (Score)cast["Scores"][1];
             int count = playerCards.Count;
             
@@ -36,6 +37,11 @@ namespace Final_Project.Scripting
                 int rightEdge = card.GetRightEdge();
                 int top = card.GetTopEdge();
                 int bottom = card.GetBottomEdge();
+
+                int passLeftEdge = pass.GetLeftEdge();
+                int passRightEdge = pass.GetRightEdge();
+                int passTop = pass.GetTopEdge();
+                int passBottom = pass.GetBottomEdge();
 
                 if(_inputService.ISMouseClick() && _turnService.IsPlayerTurn())
                 {
@@ -62,14 +68,7 @@ namespace Final_Project.Scripting
                                 
                                 if (totalCount + cardValue > 31)
                                 {
-                                    // int npcCurrentScore = npcScore.GetScore();
-                                    // int npcNewScore = npcCurrentScore + 1;
-                                    // npcScore.SetScore(npcNewScore);
-
-                                    Point position = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
-                                    card.SetPosition(position);
-                                    playedPlayer.Add(card);
-                                    _turnService.EndPlayerTurn();
+                                    
                                 }
                                 else
                                 {
@@ -79,6 +78,16 @@ namespace Final_Project.Scripting
                                     _turnService.EndPlayerTurn();
                                 }
                             }
+                        }
+                    }
+                    else if (mouseX >= passLeftEdge && mouseX <= passRightEdge)
+                    {
+                        if (mouseY >= passTop && mouseY <= passBottom)
+                        {
+                            _turnService.EndPlayerTurn();
+                            int npcCurrentScore = npcScore.GetScore();
+                            int npcNewScore = npcCurrentScore + 1;
+                            npcScore.SetScore(npcNewScore);
                         }
                     }
                 }

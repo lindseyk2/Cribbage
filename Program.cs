@@ -19,6 +19,18 @@ namespace Final_Project
             Board board = new Board();
             cast["Board"].Add(board);
 
+            // Pass Button
+            cast["Pass"] = new List<Actor>();
+
+            Point passPosition = new Point(600, 550);
+            Card pass = new Card();
+            
+            pass.SetText("PASS");
+            pass.SetHeight(30);
+            pass.SetPosition(passPosition);
+            
+            cast["Pass"].Add(pass);
+
             // The Scores
             cast["Scores"] = new List<Actor>();
 
