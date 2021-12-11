@@ -81,7 +81,7 @@ namespace Final_Project
             MoveCardAction moveCardAction = new MoveCardAction(inputService, turnService);
             script["input"].Add(moveCardAction);
 
-            StartRoundAction startRoundAction = new StartRoundAction();
+            StartRoundAction startRoundAction = new StartRoundAction(turnService);
             script["update"].Add(startRoundAction);
 
             CountLaidCardAction countLaidCardAction = new CountLaidCardAction();
@@ -89,6 +89,9 @@ namespace Final_Project
             
             NPCMoveAction npcMoveAction = new NPCMoveAction(turnService);
             script["update"].Add(npcMoveAction);
+
+            EndRoundAction endRoundAction = new EndRoundAction(turnService);
+            script["update"].Add(endRoundAction);
             
             DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
             script["output"].Add(drawActorsAction);

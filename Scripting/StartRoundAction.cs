@@ -8,6 +8,12 @@ namespace Final_Project.Scripting
     //An action to Create a new Hand
     public class StartRoundAction : Action
     {
+        TurnService _turnService;
+
+        public StartRoundAction(TurnService turnService)
+        {
+            _turnService = turnService;
+        }
         public override void Execute(Dictionary<string, List<Actor>> cast)
         {
             List<Actor> playerCards = cast["PlayerCards"];
@@ -18,9 +24,9 @@ namespace Final_Project.Scripting
             List<Actor> crib = cast["Crib"];
             CardDeck cardDeck = new CardDeck();
             
-            int count = playerCards.Count + npcCards.Count;
+            //int count = playerCards.Count + npcCards.Count;
             
-            if (count == 0)
+            if (_turnService.IsStartRound())
             {
                 // Clear the board of cards
                 List<Actor> clearCards = new List<Actor>();
@@ -78,6 +84,9 @@ namespace Final_Project.Scripting
                 faceUpCard.SetPosition(faceUpCardPosition);
                 //faceUpCard.GetText();
                 cast["Cards"].Add(faceUpCard);
+
+                _turnService.SetStartRound(false);
+                _turnService.SetEndRound(true);
             }
         }
     }

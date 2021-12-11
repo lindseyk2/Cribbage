@@ -15,7 +15,6 @@ namespace Final_Project.Casting
             SetWidth(Constants.CARD_WIDTH);
             SetCardValue(_cardValue);
             SetSuit(_suit);
-            //SetImage(Constants.IMAGE_BOARD);
         }
 
         public void SetCardValue(int value)

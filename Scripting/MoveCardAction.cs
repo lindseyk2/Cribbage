@@ -67,8 +67,12 @@ namespace Final_Project.Scripting
                                 int cardValue = card.GetCardValue();
                                 
                                 if (totalCount + cardValue > 31)
-                                {
-                                    
+                                { 
+                                    //Take this out. Only have it here to test the counting score function.
+                                    Point position = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
+                                    card.SetPosition(position);
+                                    playedPlayer.Add(card);
+                                    _turnService.EndPlayerTurn();
                                 }
                                 else
                                 {

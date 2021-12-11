@@ -10,6 +10,13 @@ namespace Final_Project.Services
         private bool _playerTurn = true;
         private bool _npcTurn = false;
 
+        private bool _startRound = true;
+
+        private bool _endRound = false;
+
+        private bool _playerDeal = true;
+        private bool _npcDeal = false;
+
         public TurnService()
         {
 
@@ -40,6 +47,38 @@ namespace Final_Project.Services
         {
             _npcTurn = false;
             _playerTurn = true;
+        }
+        public void SetStartRound(bool startRound)
+        {
+            _startRound = startRound;
+        }
+        public bool IsStartRound()
+        {
+           return _startRound;
+        }
+        public void SetEndRound(bool endRound)
+        {
+            _endRound = endRound;
+        }
+        public bool IsEndRound()
+        {
+           return _endRound;
+        }
+        public void SetPlayerDeal(bool playerDeal)
+        {
+            _playerDeal = playerDeal;
+        }
+        public bool IsPlayerDeal()
+        {
+           return _playerDeal;
+        }
+        public void SetNPCDeal(bool npcDeal)
+        {
+            _npcDeal = npcDeal;
+        }
+        public bool IsNPCDeal()
+        {
+            return _npcDeal;
         }
     }
 }
