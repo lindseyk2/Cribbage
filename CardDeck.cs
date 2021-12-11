@@ -27,6 +27,8 @@ namespace Final_Project
                     Card card = new Card();
                     card.SetSuit("Spade"); 
                     card.SetCardValue(sNumber);
+                    string image = card.GetCardImage("Spade", sNumber);
+                    card.SetImage(image);
                     card.SetText(sNumber + "\n S");
                     _deck.Add(card);
                     sNumber++;
@@ -36,6 +38,8 @@ namespace Final_Project
                     Card card = new Card();
                     card.SetSuit("Club"); 
                     card.SetCardValue(cNumber);
+                    string image = card.GetCardImage("Club", cNumber);
+                    card.SetImage(image);
                     card.SetText(cNumber + "\n C");
                     _deck.Add(card);
                     cNumber++;
@@ -43,8 +47,10 @@ namespace Final_Project
                 else if (i >= 26 && i < 39)
                 {
                     Card card = new Card();
-                    card.SetSuit("Dimond"); 
+                    card.SetSuit("Diamond"); 
                     card.SetCardValue(dNumber);
+                    string image = card.GetCardImage("Diamond", dNumber);
+                    card.SetImage(image);
                     card.SetText(dNumber + "\n D");
                     _deck.Add(card);
                     dNumber++;
@@ -54,6 +60,8 @@ namespace Final_Project
                     Card card = new Card();
                     card.SetSuit("Heart"); 
                     card.SetCardValue(hNumber);
+                    string image = card.GetCardImage("Heart", hNumber);
+                    card.SetImage(image);
                     card.SetText(hNumber + "\n H");
                     _deck.Add(card);
                     hNumber++;
