@@ -73,6 +73,10 @@ namespace Final_Project.Scripting
 
                                 Point laidPosition = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
                                 randomCard.SetPosition(laidPosition);
+                                string suit = randomCard.GetSuit();
+                                int value = randomCard.GetCardNumber();
+                                string image = randomCard.GetCardImage(suit, value);
+                                randomCard.SetImage(image);
                     
                                 playedNPC.Add(randomCard);
                                 _turnService.EndNPCTurn();
@@ -81,6 +85,10 @@ namespace Final_Project.Scripting
                             {
                                 Point laidPosition = new Point(Constants.LAIDCARD_X, Constants.LAIDCARD_Y);
                                 randomCard.SetPosition(laidPosition);
+                                string suit = randomCard.GetSuit();
+                                int value = randomCard.GetCardNumber();
+                                string image = randomCard.GetCardImage(suit, value);
+                                randomCard.SetImage(image);
                     
                                 playedNPC.Add(randomCard);
                                 _turnService.EndNPCTurn();

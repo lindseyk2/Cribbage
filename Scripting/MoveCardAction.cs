@@ -53,6 +53,7 @@ namespace Final_Project.Scripting
                             {
                                 Point cribPosition = new Point(20, 520);
                                 card.SetPosition(cribPosition);
+                                card.SetImage(Constants.IMAGE_BACK_OF_CARD);
                                 crib.Add(card);
 
                                 _turnService.EndPlayerTurn();
