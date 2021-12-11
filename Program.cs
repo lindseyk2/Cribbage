@@ -17,6 +17,7 @@ namespace Final_Project
             cast["Board"] = new List<Actor>();
 
             Board board = new Board();
+            board.SetImage(Constants.IMAGE_BOARD);
             cast["Board"].Add(board);
 
             // Pass Button
