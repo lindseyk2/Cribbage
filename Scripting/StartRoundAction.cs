@@ -73,7 +73,7 @@ namespace Final_Project.Scripting
                     Point npcHand = new Point(x2, 10);
                     Card npcCard = cardDeck.RandomCard();
                     npcCard.SetPosition(npcHand);
-                    //npcCard.GetText();
+                    npcCard.SetImage(Constants.IMAGE_BACK_OF_CARD);
                     cast["NPCCards"].Add(npcCard);
                     x2 += 65;
                 }                
